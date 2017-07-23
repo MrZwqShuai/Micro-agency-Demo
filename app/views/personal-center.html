@@ -1,0 +1,47 @@
+<div class="container-personal" ng-controller="PersonalController">
+    <div class="profile-cover">
+        <div class="mask"></div>
+        <div class="personal-avatar">
+            <span><img src="https://tva2.sinaimg.cn/crop.40.222.428.428.180/00685lXsjw8f8igrhpl6ej30e20p0n0e.jpg" alt=""></span>
+        </div>
+        <div class="person-profile">
+            <div class="name-gender">
+                <span class="left-username">{{nickname}}</span>
+                <span class="right-gender">img</span>
+            </div>
+        </div>
+        <div class="personal-star-fans">
+            <div class="follow-star">
+                <span class="following">关注275</span>
+                <span class="followers">粉丝28</span>
+            </div>
+        </div>
+        <div class="personal-bio">
+            <span>{{bio}}</span>
+        </div>
+    </div>
+    <div>
+        <div class="box-content" ng-repeat="listview in listViews">
+            <header>
+                <div class="card-img">
+                    <a ng-href="/#!/user/{{listview.author.username}}">
+                        <img src="../img/2309.gif" alt="">
+                    </a>
+                </div>
+                <div class="item-list">
+                    <a ng-href="/#!/user/{{listview.author.username}}" class="user-sq">{{listview.author.username}}</a>
+                    <div class="create-date">
+                        <span>{{listview.publishDate | date:'yyyy-MM-dd HH:mm:ss'}}</span><span>来自微社客户端</span>
+                    </div>
+                </div>
+                <a href="" class="operate-box" ng-click="editArticle()">编辑</a>
+            </header>
+            <div class="top-img">
+                <a href="/#!/articles/{{listview._id}}"><img ng-src="{{listview.src}}" alt=""></a>
+            </div>
+            <div class="bottom-txt">
+                <p><a href="/#!/articles/{{listview._id}}">{{listview.content}}</a></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+.HomeSettingController header {
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    height: 3rem;
+}
+
+.HomeSettingController .title-container {
+    background-color: #f9f9f9;
+}
+
+.HomeSettingController .title-container .txt-setting {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.HomeSettingController header span,
+.HomeSettingController header h1 {
+    -webkit-flex: 1;
+}
+
+.HomeSettingController header .txt-setting {
+    text-align: center;
+}
+
+.HomeSettingController header .more::before {
+    content: "\2026";
+}
+
+.HomeSettingController header .more {
+    height: 2.8rem;
+    line-height: 2rem;
+    font-size: 1.8rem;
+    text-align: end;
+    padding-right: 1rem;
+}
+
+.HomeSettingController header .back::before {
+    content: "\0065"
+}
+
+.HomeSettingController header .back {
+    padding-left: 1rem;
+}
+
+.HomeSettingController .personal-detail {
+    margin-top: .6rem;
+    height: 3rem;
+    background-color: #fff;
+}
+
+.layout-box {
+    display: -webkit-flex;
+    height: 100%;
+    -webkit-justify-content: space-around;
+    -webkit-align-items: center;
+    color: #333;
+}
+
+.layout-box span {
+    -webkit-flex: 1;
+}
+
+.layout-box span:nth-child(1) {
+    padding-left: 1rem;
+}
+
+.layout-box span:nth-child(2) {
+    padding-right: 1rem;
+    text-align: end;
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+.personal-detail .signout {
+    color: #de2b2b;
+}

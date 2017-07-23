@@ -1,0 +1,253 @@
+.LoginController {
+    margin: 0 20px;
+}
+
+.LoginController .address-select select {
+    width: 96px;
+    background: url(../img/dropdown.png) no-repeat;
+    background-position: 75px 5px;
+    background-size: 15px;
+    -webkit-appearance: none;
+    color: #b4b4b4;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+}
+
+.m-title {
+    margin-bottom: 20px;
+}
+
+.m-title .title {
+    height: 3.5rem;
+    color: #333;
+    text-align: center;
+    font-size: 18px;
+}
+
+.m-goBac {
+    width: 100%;
+    height: 33px;
+}
+
+.m-goBack a span::before {
+    color: #333;
+    font-size: 1rem;
+    content: "返回"
+}
+
+.login-phoneNum {
+    display: -webkit-flex;
+    height: 3rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.login-phoneNum .address-select {
+    -webkit-flex: .5;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+
+.login-phoneNum .wrap-info {
+    -webkit-flex: .5;
+}
+
+.input-error {
+    margin-top: -1.25rem;
+    font-size: .5rem;
+    text-indent: 10px;
+    color: #ff2727;
+}
+
+.input-login {
+    margin-top: -1.25rem;
+    font-size: .5rem;
+    text-indent: 10px;
+    color: #b5b5b5;
+}
+
+.login-phoneNum .wrap-info .enterNumber {
+    text-indent: 10px;
+    font-size: 1rem;
+}
+
+.wrap-info .wrap-phone {
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    height: 3rem;
+}
+
+.password-wrap {
+    display: -webkit-flex;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.password-wrap .password-input {
+    -webkit-flex: .8;
+    height: 3rem;
+    font-size: .7rem;
+}
+
+.displayPassword {
+    -webkit-flex: .2;
+    background: url(../img/passwordeye.png) no-repeat;
+    background-position: 35px;
+}
+
+.hiddenPassword {
+    -webkit-flex: .2;
+    background: url(../img/openpassword.png) no-repeat;
+    background-position: 35px;
+}
+
+.showBubble {
+    position: absolute;
+    top: 1rem;
+    background: url(../img/bubbleprompt.png) no-repeat;
+    padding: .36rem 1rem;
+    color: #fff;
+    opacity: .7;
+}
+
+.btn-Wrap .c-btn-login {
+    width: 100%;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    height: 3rem;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: #0bbe06;
+}
+
+.forget-password {
+    display: -webkit-flex;
+    -webkit-justify-content: flex-end;
+    height: 3.6rem;
+}
+
+.forget-password .forgetpassword {
+    height: 3rem;
+    line-height: 3rem;
+    font-size: .5rem;
+    color: #0bbe06;
+}
+
+.m-loginNew {
+    position: relative;
+}
+.nickname-container{
+    display: -webkit-flex;
+    height: 3rem;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 1rem;
+}
+.nickname-container span {
+    line-height: 3rem ;
+}
+.nickname-container input{
+    text-indent: 10px ;
+}
+.nickname-container span,.nickname-container input{
+    -webkit-flex:.5 ;
+}
+/*上传头像css*/
+#updateAvatar {
+    display: none ;
+}
+.avatar-container{
+    height: 6rem;
+    padding: .5rem 0;
+}
+.avatar-container label{
+    background: url(../img/avatar.png);
+    width: 6rem;
+    background-size: cover;
+    height: 100%;
+    display: block;
+    margin: 0rem auto;
+}
+/*section下面的inp框背景色*/
+.m-loginNew input {
+    background-color: #f2f2f2 ;
+}
+/*上传头像css*/
+.mainLoginWay {
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    margin-top: 2.8rem;
+}
+
+.mainLoginWay a {
+    color: #666;
+    font-size: 1rem;
+    padding: 0 .8rem;
+}
+
+
+/*路由切换动画S*/
+
+@keyframes slideOutLeft {
+    to {
+        -webkit-transform: translateX(-100%)
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: .3;
+        -webkit-transform: scale(.8);
+    }
+}
+
+@keyframes rotateOutNewspaper {
+    to {
+        transform: translateZ(-3000px) rotateZ(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.page-login.ng-enter {
+    animation: scaleUp .5s both ease-in;
+    z-index: 8888;
+}
+
+.page-sign.ng-enter {
+    animation: scaleUp .5s both ease-in;
+    z-index: 8888;
+}
+
+.page-sign.ng-leave {
+    transform-origin: 0% 0%;
+    animation: slideOutLeft .5s both ease-in;
+    z-index: 9999;
+}
+
+.list-detail.ng-enter {
+    animation: scaleUp .5s both ease-in;
+}
+
+.list-detail.ng-leave {
+    animation: slideOutRight .5s both ease-in;
+}
+
+
+/*路由切换动画E*/

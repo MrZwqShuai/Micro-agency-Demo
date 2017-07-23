@@ -1,0 +1,401 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: '微软雅黑, Microsoft YaHei, 宋体, Tahoma, Helvetica, Arial, sans-serif';
+    color: #333;
+    line-height: 1.5;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+body {
+    background: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%
+}
+
+button,
+input {
+    outline: none;
+    border: none;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+
+/*public css*/
+
+.m1 {
+    font-size: 1.2rem;
+}
+
+.m2 {
+    font-size: 1rem;
+}
+
+.m3 {
+    margin: 0 auto;
+}
+
+.m4 {
+    text-align: center;
+}
+
+
+/*e*/
+
+header nav .nav {
+    width: 100%;
+    height: 50px;
+    background-color: #e6e6e6;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .24);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .24);
+}
+
+.nav .left img,
+.nav .right img {
+    padding: 9px;
+}
+
+.nav .left,
+.nav .middle {
+    float: left;
+    height: 100%;
+}
+
+.nav .right {
+    float: right;
+    height: 100%;
+}
+
+header nav .spread-left {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #b5b5b5;
+    -webkit-transition: all ease .5s;
+    transition: all ease .5s;
+    -webkit-transform: translate(0%);
+    transform: translate(0%);
+}
+
+.spread-left.ng-hide {
+    -webkit-transform: translate(100%);
+    transform: translate(100%);
+}
+
+.spread-left ul li {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.spread-left ul a {
+    color: #fff;
+}
+
+.h-close {
+    width: 25px;
+    height: 25px;
+}
+
+.box-content {
+    margin: 10px 0;
+    padding: 10px 10px;
+    -webkit-box-shadow: 1px 1px 1px 1px #d7e7e9;
+    box-shadow: 1px 1px 1px 1px #d7e7e9;
+    background-color: #fff;
+}
+
+.bottom-txt p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bottom-txt p a {
+    color: #333;
+    word-wrap: break-word;
+}
+
+@media screen and (min-width:768px) {
+    .box-content .top-img {
+        width: 414px;
+        margin: 0 auto;
+    }
+}
+
+@-webkit-keyframes spread {
+    from {
+        -webkit-transform: translate(0%);
+        transform: translate(0%);
+    }
+    to {
+        -webkit-transform: translate(100%);
+        transform: translate(100%);
+    }
+}
+
+@keyframes spread {
+    from {
+        -webkit-transform: translate(0%);
+        transform: translate(0%);
+    }
+    to {
+        -webkit-transform: translate(-100%);
+        transform: translate(-100%);
+    }
+}
+
+.body-wrapper {
+    padding: 0 1px;
+    margin-top: 50px;
+}
+
+
+/*登录css*/
+
+.post-wrap .login {
+    width: 38px;
+    height: 38px;
+    margin-left: 2px;
+    border: 1px solid #4398ed;
+    border-radius: 40px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 38px;
+}
+
+.post-wrap .login a {
+    color: #4398ed;
+}
+
+.post-wrapborder {
+    width: 43px;
+    height: 10px;
+    background: url(../img/border-t.png) no-repeat;
+    float: left;
+}
+
+.post-wrapborder1 {
+    width: 84%;
+    height: 10px;
+    margin-left: 43px;
+    border-top: 1px solid #4398ed;
+}
+
+@media screen and (max-width: 320px) {
+    .post-wrapborder1 {
+        width: 82%;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    .post-wrapborder1 {
+        width: 85%;
+    }
+}
+
+.post-wrapborder2 {
+    width: 95.6%;
+    height: 86px;
+    border-top: none;
+    border-left: 1px solid #4398ed;
+    border-right: 1px solid #4398ed;
+    border-bottom: 1px solid #4398ed;
+    margin-top: -10px;
+    border-radius: 2px;
+}
+
+.post-wrapborder2 textarea {
+    width: 97%;
+    height: 68px;
+    border: none;
+    outline: none;
+    text-indent: 10px;
+}
+
+.btn-commit {
+    width: 80px;
+    height: 26px;
+    margin-top: 5px;
+    margin-right: 4%;
+    background: url(../img/post-btn.png) no-repeat;
+    background-size: 100%;
+    float: right;
+}
+
+
+/*是否有评论*/
+
+.empty-comment {
+    width: 97%;
+    height: 23px;
+    margin-top: 48px;
+    background-color: #f0f0f0;
+    text-align: center;
+    line-height: 26px;
+}
+
+
+/*评论内容*/
+
+.comment-wrap .newest {
+    width: 80px;
+    height: 20px;
+    border-left: 4px solid #4398ed;
+    padding-left: 12px;
+    margin-top: 10px;
+    color: #4398ed;
+}
+
+.justmoment {
+    float: right;
+    margin-right: 4%;
+}
+
+.comment-wrap li {
+    margin-top: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+/*提示框css*/
+
+@keyframes slidDownRrompt {
+    from {
+        transform: translate3d(0, 0, 0);
+        top: 0rem;
+    }
+    to {
+        transfrom: translate3d(0, 100px, 0px);
+        top: 3rem;
+    }
+}
+
+@-webkit-keyframes slidDownRrompt {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transfrom: translate3d(0, 100px, 0px)
+    }
+}
+
+@keyframes slidUpRrompt {
+    from {
+        top: 3rem;
+    }
+    to {
+        top: 0rem;
+    }
+}
+
+.warning-box {
+    position: fixed;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+}
+
+.warning-box p {
+    height: 2rem;
+    margin: 0 1rem;
+    line-height: 2rem;
+    background-color: #d7e7e9;
+}
+
+.warning-box.ng-enter {
+    animation: slidDownRrompt .3s both ease-out;
+    -webkit-animation: slidDownRrompt .3s both ease-out;
+}
+
+.warning-box.ng-leave {
+    animation: slidUpRrompt .3s both ease-out;
+    -webkit-animation: slidUpRrompt .3s both ease-out;
+}
+
+
+/*每篇动态内容css*/
+
+.box-content header {
+    display: -webkit-flex;
+    height: auto;
+}
+
+.box-content header a {
+    color: #000;
+}
+
+.box-content .top-img {
+    width: 8rem;
+}
+
+.box-content .card-img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    border: 1px solid #999;
+}
+
+.box-content .card-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.box-content .item-list {
+    -webkit-flex: .7;
+}
+
+.box-content .operate-box {
+    -webkit-flex: .3;
+    display: -webkit-flex;
+    -webkit-justify-content: flex-end;
+}
+
+
+/*首屏加载动画*/
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: #000;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Chrome 和 Safari */
+    -moz-backface-visibility: hidden;
+    /* Firefox */
+    -ms-backface-visibility: hidden;
+}

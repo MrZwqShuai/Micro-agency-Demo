@@ -1,0 +1,47 @@
+<form method="post">
+    <div class="LoginController" ng-controller="LoginController">
+        <section class="m-goBack">
+            <a ng-click="goBack()">
+                <span class="arrow"></span>
+            </a>
+        </section>
+        <div class="m-title">
+            <h2 class="title">{{loginStatu}}</h2>
+        </div>
+        <section class="m-loginNew">
+            <div class="m-phone-login">
+                <div class="login-phoneNum">
+                    <div class="address-select">
+                        <select class="cityCls" name="Nationalcity" ng-model="select.defCity" ng-options="nCity.name for nCity in Nationalcities">
+                    </select>
+                    </div>
+                    <div class="wrap-info">
+                        <div class="input-login" ng-if="inPhoneNum">请输入手机号或邮箱</div>
+                        <div class="input-error" ng-if="!correctPhoneNum">手机号格式错误,请重新输入</div>
+                        <div class="wrap-phone">
+                            <input type="text" name="phonenumber" class="enterNumber" placeholder="请输入手机号或邮箱" ng-model="phone.number" ng-change="judgePhoneNum(phone.number)" ng-blur="isCorrectPhoneNum(phone.number)">
+                        </div>
+                    </div>
+                </div>
+                <div class="login-password">
+
+                </div>
+            </div>
+            <div class="password-wrap">
+                <i class="showBubble" ng-if="isCorrectPwd">{{pwdWarning.txt}}</i>
+                <input type="{{login.password}}" class="password-input" placeholder="请输入密码" ng-model="login.validPassword" ng-change="correctPassword(login.validPassword)" ng-blur="emptyPassworld(login.validPassword)">
+                <i ng-class="{true:'hiddenPassword',false:'displayPassword'}[isShowPassword]" ng-click="closePasswordEyes()"></i>
+            </div>
+        </section>
+        <div class="forget-password">
+            <a href="" class="forgetpassword">忘记密码</a>
+        </div>
+        <div class="btn-Wrap">
+            <input class="c-btn-login" value="登录" type="submit" ng-click="signinFn(phone.number,login.validPassword)">
+        </div>
+        <div class="mainLoginWay">
+            <a href="/#!/register.html" class="">注册</a>
+            <a href="">其他方式登录</a>
+        </div>
+    </div>
+</form>

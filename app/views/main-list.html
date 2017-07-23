@@ -1,0 +1,24 @@
+<div class="container srcoll-container" ng-controller="MainListController" scroll-refresh>
+    <div class="box-content" ng-repeat="listview in listViews">
+        <header>
+            <div class="card-img">
+                <a ng-href="/#!/user/{{listview.author._id}}">
+                    <img src="../img/2309.gif" alt="">
+                </a>
+            </div>
+            <div class="item-list">
+                <a ng-href="/#!/user/{{listview.author._id}}" class="user-sq">{{listview.author.username}}</a>
+                <div class="create-date">
+                    <span>{{listview.publishDate | date:'MM/dd/yyyy'}}</span><span>来自微社客户端</span>
+                </div>
+            </div>
+            <a href="" class="operate-box" ng-click="editArticle()">编辑</a>
+        </header>
+        <div class="bottom-txt">
+            <p><a href="/#!/articles/{{listview._id}}">{{listview.content}}</a></p>
+        </div>
+        <div class="top-img">
+            <a href="/#!/articles/{{listview._id}}"><img ng-src="{{listview.photoSrc}}" alt=""></a>
+        </div>
+    </div>
+</div>

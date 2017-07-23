@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="./bundle.js"></script>
+    <title>{{title}}</title>
+</head>
+
+<body ng-controller="TopController">
+    <header class="header">
+        <nav>
+            <div class="nav">
+                <div class="left">
+                    <a href="/#!"><img src="./img/country.png" alt=""></a>
+                </div>
+                <div class="middle">
+                    <h4>{{title}}</h4>
+                </div>
+                <div class="right" ng-click="spread()"><img src="./img/nav.png" alt=""></div>
+            </div>
+            <div class="spread-left" ng-show="isClickS">
+                <div class="h-close" ng-click="closeNav()">
+                    <img src="./img/close.png" alt="">
+                </div>
+                <ul>
+                    <li ng-repeat="hrefTxt in listHref"><a ng-href="{{hrefTxt.href}}" ng-click="closeNav()">{{hrefTxt.txt}}</a></li>
+                    <li ng-click="closeNav()"><a ng-href="{{isSigned.href}}">{{isSigned.txt}}</a></li </ul>
+            </div>
+        </nav>
+    </header>
+    <!--登录登出文章获取提示框-->
+    <div class="warning-box" ng-if="prompt.isTrue">
+        <p class="m4">{{prompt.message[pIndex.i]}}</p>
+    </div>
+    <!--登录登出文章获取提示框-->
+    <div class="body-wrapper">
+        <div class="{{routeClass}}" ng-view>
+
+        </div>
+    </div>
+    <div id="preloader" ng-show="successLodaing">
+
+    </div>
+</body>
+
+</html>

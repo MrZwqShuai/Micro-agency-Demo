@@ -1,0 +1,27 @@
+<div class="detail-con" ng-controller="MainDetailController">
+    <div class="detail-img">
+        <img ng-src="{{mainArticle.photoSrc}}" alt="">
+    </div>
+    <h3>{{mainArticle.content}}</h3>
+    <div class="post-wrap">
+        <div class="login">
+            <a href="#!/signin">登录</a>
+        </div>
+        <div class="post-wrapborder"></div>
+        <div class="post-wrapborder1"></div>
+        <div class="post-wrapborder2">
+            <textarea name="" ng-model="review.comment"></textarea>
+        </div>
+        <button type="submit" class="btn-commit" ng-click="sendComment(review.comment)"></button>
+        <div class="empty-comment" ng-if="!commentArr.length">还没有评论，快来抢沙发吧！</div>
+        <div class="comment-wrap">
+            <div class="newest" ng-if="commentArr.length">最新评论</div>
+            <ul>
+                <li ng-repeat="commentTxt in commentArr">
+                    <p class="justmoment">{{commentTxt.cDate | date:'MM-dd hh:mm:ss'}}</p>
+                    <p>{{commentTxt.content}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

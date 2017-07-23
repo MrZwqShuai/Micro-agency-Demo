@@ -1,0 +1,54 @@
+<div class="profileDetail" ng-controller="PersonalInfoController">
+    <header>
+        <h1 class="baseInfo m4">基本信息</h1>
+    </header>
+    <div class="baseInfo-list">
+        <span class="baseInfo">昵称</span>
+        <span>{{nickname}}</span>
+        <span>></span>
+    </div>
+    <div class="baseInfo-list" ng-click="genderSelect()">
+        <span class="baseInfo">性别</span>
+        <span>{{personal.gender}}</span>
+        <span>></span>
+    </div>
+    <div class="baseInfo-list">
+        <span class="baseInfo">生日</span>
+        <span>1994-08-27</span>
+        <span>></span>
+    </div>
+    <div class="baseInfo-list">
+        <span class="baseInfo">所在地</span>
+        <span>安徽 芜湖</span>
+        <span>></span>
+    </div>
+    <div class="baseInfo-list" ng-click="bioEdit()">
+        <span class="baseInfo">简介</span>
+        <span>{{defaultBio}}</span>
+        <span>></span>
+    </div>
+    <!-- 性别选择浮层 S-->
+    <div class="gender-popmenu" ng-if="gender.touched" ng-click="genderNoSelect()">
+    </div>
+    <div class="gender-select" ng-if="gender.touched">
+        <ul>
+            <li>
+                <a>性别修改</a>
+            </li>
+            <li class="boy" ng-click="choiceGender(sex.boy)"><a>{{sex.boy}}</a></li>
+            <li class="girl" ng-click="choiceGender(sex.girl)"><a>{{sex.girl}}</a></li>
+            <li class="cancel" ng-click="genderNoSelect()">
+                <a>取消</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 性别选择浮层 E-->
+    <!--简介编辑框S -->
+    <article ng-if="descriptionEdit" class="descriptionEdit">
+        <div class="txt-publisher-wrapper">
+            <textarea id="txt-publisher" ng-model="bio.description" ng-change="personalDes(bio.description)" class="ng-pristine ng-untouched ng-valid ng-empty"></textarea>
+        </div>
+        <div class="bio-save"><span ng-click="completeEdit(bio.description)">保存</span></div>
+    </article>
+    <!--简介编辑框E -->
+</div>

@@ -1,0 +1,21 @@
+<div class="PublisherController" ng-controller="PublisherController">
+    <div class="title-group">
+        <a class="cancel" ng-click="goBack()"><span>x</span></a>
+        <div class="current-user">
+            <h2 class="m1 m3 m4">发微社</h2>
+        </div>
+        <a href="javascript:void(0)" class="txt-links" ng-click="publishArticle(publisher.pushTxt)"><span class="pushTxtNum" ng-if="publisher.pushTxt">{{publisher.pushTxt.length}}</span><span ng-class="{true:'txt-link',false:'graytxt-link'}[disable]">发送</span></a>
+    </div>
+    <article>
+        <div class="txt-publisher-wrapper">
+            <textarea id="txt-publisher" placeholder="分享新鲜事..." ng-model="publisher.pushTxt" ng-change="pushing(publisher.pushTxt)"></textarea>
+        </div>
+    </article>
+    <footer class="publisher-footer">
+        <ul class="iconlist">
+            <li ng-click="selectPhoto()">
+                <input type="file" name="file" enctype="multipart/form-data" file-model='myFile' />
+            </li>
+        </ul>
+    </footer>
+</div>

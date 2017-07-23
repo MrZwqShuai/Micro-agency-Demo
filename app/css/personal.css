@@ -1,0 +1,247 @@
+.profile-cover {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 13rem;
+    overflow: hidden;
+    background-image: url(https://tva1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg);
+    background-size: cover;
+}
+
+.profile-cover .mask {
+    position: absolute;
+    opacity: .7;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(0, 0, 0, .01)), to(rgba(0, 0, 0, .95)));
+    background: linear-gradient(180deg, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));
+}
+
+.profile-cover .personal-avatar {
+    position: relative;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    padding-top: 1rem;
+}
+
+.profile-cover .personal-avatar span {
+    width: 5rem;
+    height: 5rem;
+    display: inline-block;
+    padding: .2rem;
+    border-radius: 50%;
+    background-color: hsla(0, 0%, 100%, .4);
+}
+
+.profile-cover .personal-avatar img {
+    border-radius: 50%;
+}
+
+.profile-cover .person-profile,
+.profile-cover .personal-star-fans {
+    position: relative;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    padding-top: .5rem;
+}
+
+.profile-cover .person-profile .name-gender,
+.profile-cover .personal-star-fans .follow-star {
+    position: relative;
+    width: 10rem;
+    position: relative;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+}
+
+.profile-cover .person-profile .left-username,
+.profile-cover .person-profile .right-gender,
+.profile-cover .personal-star-fans span {
+    font-size: 1rem;
+    color: #FFF;
+    text-align: start;
+}
+
+.profile-cover .followers {
+    border-left: 1px solid #e6e6e6
+}
+
+.follow-star span {
+    padding: 0 .7rem
+}
+
+
+/*个人基本信息*/
+
+.profileDetail .baseInfo {
+    font-size: 1.2rem;
+}
+
+.profileDetail header,
+.profileDetail .baseInfo-list {
+    font-size: 1.2rem;
+    height: 3rem;
+    line-height: 3rem;
+    background-color: #f9f9f9;
+}
+
+.profileDetail .baseInfo-list {
+    display: -webkit-flex;
+    -webkit-justify-content: space-around;
+    border-top: #dadada solid 1px;
+}
+
+.profileDetail .baseInfo-list span:nth-child(1) {
+    -webkit-flex: .2;
+    padding-left: .5rem;
+    font-size: 1rem;
+    color: #999;
+}
+
+.profileDetail .baseInfo-list span:nth-child(2) {
+    -webkit-flex: .7;
+    color: #000;
+}
+
+.profileDetail .baseInfo-list span:nth-child(3) {
+    -webkit-flex: .1;
+    padding-right: .4rem;
+    text-align: end;
+    color: #999;
+}
+
+.profileDetail .gender-select {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 12rem;
+    z-index: 999;
+    background-color: #b4b4b4;
+}
+
+.profileDetail .gender-popmenu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.498039);
+}
+
+@keyframes transformPopmenu {
+    from {
+        opacity: .3;
+    }
+}
+
+@-webkit-keyframes transformPopmenu {
+    from {
+        opacity: .3;
+    }
+}
+
+@-webkit-keyframes slideUpPopmenu {
+    from {
+        bottom: -12rem;
+    }
+    to {
+        bottom: 0rem;
+    }
+}
+
+@keyframes slideUpPopmenu {
+    from {
+        bottom: -12rem;
+    }
+    to {
+        bottom: 0rem;
+    }
+}
+
+@keyframes slideDownPopmenu {
+    to {
+        bottom: -12rem;
+    }
+}
+
+@-webkit-keyframes transformNoPopmenu {
+    to {
+        opacity: 0;
+    }
+}
+
+.profileDetail .gender-popmenu.ng-enter {
+    animation: transformPopmenu .4s both ease;
+}
+
+.profileDetail .gender-select.ng-enter {
+    animation: slideUpPopmenu .4s both ease;
+}
+
+.gender-popmenu.ng-leave {
+    -webkit-animation: transformNoPopmenu .4s both ease;
+}
+
+.gender-select.ng-leave {
+    -webkit-animation: slideDownPopmenu .4s both ease;
+}
+
+.gender-select ul {
+    width: 100%;
+    height: 100%;
+}
+
+.gender-select ul li {
+    width: 100%;
+    height: 3rem;
+    border-bottom: .5px solid hsla(0, 0%, 84%, .8);
+    background-color: #e7e7e7;
+}
+
+.gender-select ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.cancel {
+    margin-top: 5px;
+}
+
+.input-info-page text-area {
+    width: 100%;
+    height: 7rem;
+}
+
+.baseInfo-list textarea {
+    height: 7rem;
+}
+
+@keyframes slideDesEdit {
+    from {
+        height: 50px;
+        background-color: red;
+    }
+}
+
+.descriptionEdit textarea.ng-enter {
+    animation: slideDesEdit 1s both ease;
+}
+
+.bio-save span {
+    float: right;
+    margin-right: 5px;
+    font-size: 1.1rem;
+}
+
+.personal-bio {
+    position: relative;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    color: #fff;
+}
