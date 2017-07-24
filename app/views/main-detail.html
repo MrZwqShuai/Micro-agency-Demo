@@ -18,6 +18,7 @@
             <div class="newest" ng-if="commentArr.length">最新评论</div>
             <ul>
                 <li ng-repeat="commentTxt in commentArr">
+                    <span>{{commentTxt.author.nickname}}</span>
                     <p class="justmoment">{{commentTxt.cDate | date:'MM-dd hh:mm:ss'}}</p>
                     <p>{{commentTxt.content}}</p>
                 </li>

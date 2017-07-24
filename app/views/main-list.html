@@ -3,11 +3,11 @@
         <header>
             <div class="card-img">
                 <a ng-href="/#!/user/{{listview.author._id}}">
-                    <img src="../img/2309.gif" alt="">
+                    <img ng-src="{{listview.author.avatar}}" alt="">
                 </a>
             </div>
             <div class="item-list">
-                <a ng-href="/#!/user/{{listview.author._id}}" class="user-sq">{{listview.author.username}}</a>
+                <a ng-href="/#!/user/{{listview.author._id}}" class="user-sq">{{listview.author.nickname}}</a>
                 <div class="create-date">
                     <span>{{listview.publishDate | date:'MM/dd/yyyy'}}</span><span>来自微社客户端</span>
                 </div>

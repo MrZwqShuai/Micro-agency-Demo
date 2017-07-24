@@ -37,6 +37,10 @@
                 <span>昵称</span>
                 <input type="text" placeholder="例如:张文强" ng-model="nickname.txt" ng-change="registerNickname(nickname.txt)">
             </div>
+            <div class="bio-container">
+                <span>简介</span>
+                <input type="text" placeholder="个人介绍" ng-model="bio.txt" ng-change="registerBio(bio.txt)">
+            </div>
             <div class="avatar-container">
                 <input type="file" id="updateAvatar" file-model='myAvatar'>
                 <label for="updateAvatar"></label>
@@ -47,7 +51,7 @@
         <a href="" class="forgetpassword">忘记密码</a>
     </div>-->
         <div class="btn-Wrap btn-Wrap-d">
-            <input class="c-btn-login" value="注册" type="submit" ng-click="registerFN(phone.number,login.validPassword,nickname.txt)">
+            <input class="c-btn-login" value="注册" type="submit" ng-click="registerFN(phone.number,login.validPassword,nickname.txt,bio.txt)">
         </div>
     </div>
 </form>

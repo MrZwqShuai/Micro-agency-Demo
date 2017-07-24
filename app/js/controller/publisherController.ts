@@ -32,11 +32,11 @@ class PublisherController {
 			let postId = response.data._id;
 			let photoSrc = response.data.photoSrc ;
 			console.log(2,photoSrc) ;
-			this.viewService.listViews.unshift({
-				photoSrc: photoSrc,
-				content: article,
-				postId: postId
-			});
+			// this.viewService.listViews.unshift({
+			// 	photoSrc: photoSrc,
+			// 	content: article,
+			// 	postId: postId
+			// });
 			this.$location.url('/');
 			console.log('------', response.data);
 		}).catch((error) => {

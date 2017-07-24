@@ -222,7 +222,10 @@ header nav .spread-left {
         width: 85%;
     }
 }
-
+.detail-img{
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+}
 .post-wrapborder2 {
     width: 95.6%;
     height: 86px;
@@ -240,6 +243,7 @@ header nav .spread-left {
     border: none;
     outline: none;
     text-indent: 10px;
+    background-color: #f2f2f2 ;
 }
 
 .btn-commit {

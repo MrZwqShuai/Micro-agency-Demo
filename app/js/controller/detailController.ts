@@ -27,7 +27,7 @@ class MainDetailController implements IDetailC {
         console.log(1, this._routeChangeService);
         this._$scope = $scope;
         this.$scope.sendComment = (comment: any) => {
-            console.log(this, this._routeChangeService);
+            console.log(this);
             let promise = this._routeChangeService.routeChangeStart('/articles');
             let cDate = new Date() ;
             promise.then((data) => {

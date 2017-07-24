@@ -6,9 +6,7 @@ module.exports = {
     },
     getUserName: function getUserName(username, password) {
         return User
-            .findOne({ username: username }, (err, results) => {
-                console.log('获取的信息:' + results); //查询用户是否存在
-            });
+            .findOne({ username: username });
     },
     getUserInfo: function getUserInfo(username, callback) {
         return User.findOne({ username: username }, callback);

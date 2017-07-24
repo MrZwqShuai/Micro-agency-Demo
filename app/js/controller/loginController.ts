@@ -70,8 +70,8 @@ class LoginController {
         }
         this.$scope.register = loginService.register;
         this.$scope.signin = loginService.signin;
-        $scope.registerFN = (username: number, pwd: string,nickname) => {
-            $scope.register($scope,$http, username, pwd,nickname, this.callbackState);
+        $scope.registerFN = (username: number, pwd: string, nickname, bio: string | number) => {
+            $scope.register($scope, $http, username, pwd, nickname, bio, this.callbackState);
         }
         $scope.signinFn = (username: number, pwd: string) => {
             $scope.signin($http, username, pwd, this.callbackState);

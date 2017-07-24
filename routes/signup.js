@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/users');
+const path = require('path');
 let multer = require('multer');
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'app/uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname + '-' + Date.now() + '.jpg');
+        cb(null, file.originalname);
     }
 });
 let upload = multer({ storage: storage });
@@ -18,29 +19,29 @@ router.get('/', function (req, res, next) {
             console.log('saved!');
         }
     });
-    // UserModel.find({ 'username': '222' }).select('username').exec((err, results) => {
-    //     if (!err) {
-    //         console.log(results);
-    //     }
-    // });
-    // console.log('www');
 });
 router.post('/', upload.single('avatar'), function (req, res, next) {
     console.log('session!!!!------', req.session, req.file, req.body);
     let username = req.body.username,
         password = req.body.password,
         nickname = req.body.nickname,
-        avatar = req.file ? (req.file.destination + req.file.path.split(path.sep).pop()) : '',
-        user = {
-            username: username,
-            password: password,
-            gender: '男',
-            bio: '',
-            avatar:avatar,
-            nickname:nickname
-        };
+        bio      = req.body.bio;
+    avatar = req.file ? (req.file.destination + req.file.path.split(path.sep).pop()) : '';
+    avatar = avatar.replace('app', '');
+    let user = {
+        username: username,
+        password: password,
+        gender: '男',
+        bio: bio,
+        avatar: avatar,
+        nickname: nickname,
+        bio: bio
+    };
+    console.log(user);
     UserModel.getUserName(username)
-        .then((result) => {
+        .exec((result) => {
+            console.log(user);
+            console.log('9-------', result);
             if (!result) {
                 console.log('用户名可用 准备载入数据库..');
                 UserModel.createUser(user, (err, results) => {

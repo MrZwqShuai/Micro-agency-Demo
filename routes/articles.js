@@ -20,7 +20,7 @@ router.get('/:id', (req, res, next) => {
         .then((results) => {
             let currentArticle = results[0], //当前文章的信息
                 commentsArr = results[1], //留言信息包括留言者
-                author = currentArticle.author.username, //当前内容的发布者
+                author = currentArticle.author, //当前内容的发布者
                 content = currentArticle.content; //当前内容
             console.log('异步获取留言与文章详情', results[0], '-----------', author, results[1]);
             res.json({ author: author, content: content, currentArticle: currentArticle, comments: commentsArr });

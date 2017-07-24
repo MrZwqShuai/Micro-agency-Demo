@@ -136,19 +136,20 @@
 .m-loginNew {
     position: relative;
 }
-.nickname-container{
+.nickname-container,.bio-container{
     display: -webkit-flex;
     height: 3rem;
     border-bottom: 1px solid #e6e6e6;
     font-size: 1rem;
 }
-.nickname-container span {
+.nickname-container span,.bio-container span {
     line-height: 3rem ;
+    color: rgba(68, 68, 68, 0.54)
 }
-.nickname-container input{
+.nickname-container input,.bio-container input{
     text-indent: 10px ;
 }
-.nickname-container span,.nickname-container input{
+.nickname-container span,.nickname-container input,.bio-container span,.bio-container input{
     -webkit-flex:.5 ;
 }
 /*上传头像css*/
@@ -158,6 +159,7 @@
 .avatar-container{
     height: 6rem;
     padding: .5rem 0;
+    border-bottom: 1px solid #e6e6e6;
 }
 .avatar-container label{
     background: url(../img/avatar.png);

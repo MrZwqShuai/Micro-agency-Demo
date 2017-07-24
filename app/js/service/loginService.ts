@@ -68,7 +68,7 @@ class LoginService {
             this.pwdWarning.txt = '密码不能为空';
         }
     }
-    register($scope, $http, username: number, password: any, nickname: any, callbackState: (state: any) => void) {
+    register($scope, $http, username: number, password: any, nickname: any, bio: string | number, callbackState: (state: any) => void) {
         //注册fn
         let isCorrectUser = this.isPhoneNumber(username);
         let avatar = $scope.myAvatar;
@@ -76,8 +76,9 @@ class LoginService {
         formData.append('username', username);
         formData.append('password', password);
         formData.append('nickname', nickname);
+        formData.append('bio', bio);
         formData.append('avatar', avatar);
-        console.log('注册发送url', isCorrectUser, avatar, formData);
+        console.log('注册发送url', isCorrectUser, bio, formData.get('bio'));
         if (isCorrectUser) {
             $http.post("/signup", formData, {
                 transformRequest: angular.identity,

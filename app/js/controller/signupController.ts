@@ -7,13 +7,18 @@ class SignUpController extends LoginController {
         super($scope, loginService, commonService, $timeout, $http, $location);
         $scope.routeClass = 'page-sign';
         $scope.registerNickname = this.registerNickname ;
-    }
+        $scope.registerBio = this.registerBio ;    
+}
     closePasswordEyes() {
         super.closePasswordEyes();
     }
     registerNickname<T>(nickname:T):T{
         console.log(nickname) ;
         return nickname ;
+    }
+    registerBio<T>(bio:T):T{
+        console.log(bio) ;
+        return bio ;
     }
 
 }

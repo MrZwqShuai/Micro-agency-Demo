@@ -18,9 +18,13 @@ class PersonalController extends MainListController {
         let url = this.$location.path();
         console.log(url, '开始发送请求');
         this.showHomePage(url, (data: any) => {
-            let bio = data.results[0].author.bio;
-            console.log(data,bio,this.personalInfoService.bio)
+            let bio = data.results[0].author.bio,
+                avatar = data.results[0].author.avatar,
+                nickname = data.results[0].author.nickname;
+            console.log(avatar, bio, this.personalInfoService.bio)
             this.$scope.bio = bio;
+            this.$scope.avatar = avatar;
+            this.$scope.nickname = this.personalInfoService.nickname = nickname
         });
     }
     showHomePage(url?: string, callback?: (data: any) => void) {

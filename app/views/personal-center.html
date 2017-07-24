@@ -2,12 +2,12 @@
     <div class="profile-cover">
         <div class="mask"></div>
         <div class="personal-avatar">
-            <span><img src="https://tva2.sinaimg.cn/crop.40.222.428.428.180/00685lXsjw8f8igrhpl6ej30e20p0n0e.jpg" alt=""></span>
+            <span><img ng-src="{{avatar}}" alt=""></span>
         </div>
         <div class="person-profile">
             <div class="name-gender">
                 <span class="left-username">{{nickname}}</span>
-                <span class="right-gender">img</span>
+                <span class="right-gender"></span>
             </div>
         </div>
         <div class="personal-star-fans">
@@ -25,11 +25,11 @@
             <header>
                 <div class="card-img">
                     <a ng-href="/#!/user/{{listview.author.username}}">
-                        <img src="../img/2309.gif" alt="">
+                        <img ng-src="{{listview.author.avatar}}" alt="">
                     </a>
                 </div>
                 <div class="item-list">
-                    <a ng-href="/#!/user/{{listview.author.username}}" class="user-sq">{{listview.author.username}}</a>
+                    <a ng-href="/#!/user/{{listview.author.username}}" class="user-sq">{{listview.author.nickname}}</a>
                     <div class="create-date">
                         <span>{{listview.publishDate | date:'yyyy-MM-dd HH:mm:ss'}}</span><span>来自微社客户端</span>
                     </div>

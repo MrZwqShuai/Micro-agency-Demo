@@ -11,13 +11,13 @@ let storage = multer.diskStorage({
        cb(null, file.originalname + '-' + Date.now()+'.jpg');
     }
 });
-let upload = multer({ storage: storage });
+let upload = multer({ storage: storage }).single('file');
 const CommentModel = require('../models/comments');
 const ArticleModel = require('../models/article');
 const Article = require('../lib/mongo').ArticleModel;
 const checkLogin = require('../middlewares/checkUser').checkLogin;
 //创建一篇文章
-router.post('/create', upload.single('file'), (req, res, next) => {
+router.post('/create', upload, (req, res, next) => {
     console.log('-------', req.file);
     // console.log('文章发表中----', req.file.destination, req.file.path.split(path.sep).pop(), req.body);
     let content = req.body.pushTxt,
