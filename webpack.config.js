@@ -5,7 +5,8 @@ module.exports = {
 
     output: {
         filename: 'bundle.js',
-        path: __dirname + '/app'
+        path: __dirname + '/app',
+        chunkFilename: '[name].chunk.js'
     },
 
     resolve: {
