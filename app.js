@@ -77,7 +77,8 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-app.listen(config.port, function() {
-    console.log(`server runing at ${config.port}`);
+const port = process.env.PORT || config.port;
+app.listen(port, function() {
+    console.log(`listening on port ${port}`);
 });
 module.exports = app;

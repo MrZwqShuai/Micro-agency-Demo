@@ -7,7 +7,7 @@
         "watch": "tsc -w",
         "server": "NODE_ENV=production supervisor app",
         "start": "webpack-dev-server ",
-        "heroku": "NODE_ENV=production node --harmony app"
+        "heroku": "NODE_ENV=production node app"
     },
     "license": "ISC",
     "devDependencies": {
