@@ -22,7 +22,7 @@ import { PostService } from './js/service/postService';
 import { PersonalInfoService } from './js/service/personalInfoService';
 import { FileUploadService } from './js/service/fileUploadService' ;
 //指令
-import { scrollRefresh } from './js/directive/scrollDirector';
+import { scrollRefresh } from './js/directive/scrollDirective';
 import {FileModel} from './js/directive/fileModelDirective' ;
 let App = angular.module('App', ['ngRoute', 'ngAnimate']);
 App.service('viewService', ViewService);

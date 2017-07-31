@@ -29,16 +29,16 @@ class MainDetailController implements IDetailC {
         this.$scope.sendComment = (comment: any) => {
             console.log(this);
             let promise = this._routeChangeService.routeChangeStart('/articles');
-            let cDate = new Date() ;
+            let cDate = new Date();
             promise.then((data) => {
-                console.log(2228,data);
+                console.log(2228, data);
                 if (data.state === "未登录") {
                     alert('请先登录');
                     $location.url('/signin');
                     return;
                 }
-                this._routeChangeService.sendComment(comment,cDate);
-                this.$scope.commentArr.push({ content: comment ,cDate:cDate});//为了匹配数据绑定遍历commentArr.content
+                this._routeChangeService.sendComment(comment, cDate);
+                this.$scope.commentArr.push({ content: comment, cDate: cDate });//为了匹配数据绑定遍历commentArr.content
             });
 
         }
@@ -64,3 +64,4 @@ class MainDetailController implements IDetailC {
 
 }
 export { MainDetailController }
+
