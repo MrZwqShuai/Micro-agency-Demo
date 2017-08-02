@@ -10,5 +10,5 @@ module.exports = {
     },
     getUserInfo: function getUserInfo(username, callback) {
         return User.findOne({ username: username }, callback);
-    } 
+    }
 };

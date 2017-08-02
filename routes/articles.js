@@ -8,6 +8,10 @@ router.get('/', getArticles, (req, res, next) => {
     // 获取某个用户或者全部用户的内容
 
 });
+// 删除某一篇文章
+router.delete('/:id', (req, res, next) => {
+    console.log('进入删除文章', req.session._id);
+});
 router.get('/:id', (req, res, next) => {
     console.log(`进入详情页了${req.params.id}`);
     let postId = req.params.id;

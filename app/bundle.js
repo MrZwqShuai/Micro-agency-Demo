@@ -659,10 +659,11 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     class MainListController extends TopController_1.TopController {
-        constructor($rootScope, $timeout, $scope, viewService, tourismService, routeChangeService, commonService) {
+        constructor($rootScope, $timeout, $http, $scope, viewService, tourismService, routeChangeService, commonService) {
             super($rootScope, $timeout, $scope, tourismService, commonService);
             this.$rootScope = $rootScope;
             this.$timeout = $timeout;
+            this.$http = $http;
             this.$scope = $scope;
             this.viewService = viewService;
             this.tourismService = tourismService;
@@ -684,6 +685,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $scope.editArticle = () => {
                 return this.editArticle();
             };
+            $scope.getCancel = () => {
+                return this.getCancel();
+            };
+            $scope.starArticle = () => {
+                return this.starArticle();
+            };
+            // 删除文章
+            $scope.deleteArticle = this.deleteArticle;
         }
         $onInit() {
             console.log('组件初始化..');
@@ -735,10 +744,26 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
         }
         //文章内容的编辑与收藏
         editArticle() {
-            alert('是否编辑此内容');
+            this.$scope.gender = {
+                touched: true
+            };
+        }
+        getCancel() {
+            this.$scope.gender = {
+                touched: false
+            };
+        }
+        starArticle() {
+            alert('已收藏');
+        }
+        // 删除某一篇文章
+        deleteArticle(uid) {
+            console.log(uid);
+            this.getCancel();
+            // this.$http.delete('/:59784b5d3f97f215e8bfecc3') ;
         }
     }
-    MainListController.$inject = ['$rootScope', '$timeout', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService'];
+    MainListController.$inject = ['$rootScope', '$timeout', '$http', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService'];
     exports.MainListController = MainListController;
 }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -993,8 +1018,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $scope.genderSelect = () => {
                 this.genderSelect();
             };
-            $scope.genderNoSelect = () => {
-                this.genderNoSelect();
+            $scope.getCancel = () => {
+                this.getCancel();
             };
             $scope.sex = {
                 boy: this.gender.boy,
@@ -1007,7 +1032,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             $scope.choiceGender = (gender) => {
                 let url = this.$location.path();
                 console.log(gender, url);
-                this.genderNoSelect();
+                this.getCancel();
                 $scope.personal.gender = gender;
                 $http.put(url, { gender: gender }).then((response) => {
                     console.log('修改成功', response);
@@ -1043,14 +1068,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                 touched: true
             };
         }
-        genderNoSelect() {
+        getCancel() {
             this.$scope.gender = {
                 touched: false
             };
         }
         choiceGender(gender) {
             console.log(gender);
-            this.genderNoSelect();
+            this.getCancel();
             this.personal.gender = gender;
         }
         personalDes(description) {
@@ -1331,7 +1356,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                     href: '/#!/myblog'
                 },
                 {
-                    txt: "微社热聊",
+                    txt: "收藏中心",
                     href: '/#!/register.html'
                 }, {
                     txt: "设置中心",
@@ -40458,7 +40483,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, ".profile-cover {\n  position: relative;\n  z-index: -1;\n  width: 100%;\n  height: 13rem;\n  overflow: hidden;\n  background-image: url(https://tva1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg);\n  background-size: cover;\n}\n\n.profile-cover .mask {\n  position: absolute;\n  opacity: .7;\n  width: 100%;\n  height: 100%;\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(0, 0, 0, .01)), to(rgba(0, 0, 0, .95)));\n  background: -webkit-linear-gradient(top, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));\n  background: -o-linear-gradient(top, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));\n  background: linear-gradient(180deg, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));\n}\n\n.profile-cover .personal-avatar {\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n  padding-top: 1rem;\n}\n\n.profile-cover .personal-avatar span {\n  width: 5rem;\n  height: 5rem;\n  display: inline-block;\n  padding: .2rem;\n  border-radius: 50%;\n  background-color: hsla(0, 0%, 100%, .4);\n}\n\n.profile-cover .personal-avatar img {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n\n.profile-cover .person-profile,\n.profile-cover .personal-star-fans {\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n  padding-top: .5rem;\n}\n\n.profile-cover .person-profile .name-gender,\n.profile-cover .personal-star-fans .follow-star {\n  position: relative;\n  width: 10rem;\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n}\n\n.profile-cover .person-profile .left-username,\n.profile-cover .person-profile .right-gender,\n.profile-cover .personal-star-fans span {\n  font-size: 1rem;\n  color: #FFF;\n  text-align: start;\n}\n\n.profile-cover .followers {\n  border-left: 1px solid #e6e6e6;\n}\n\n.follow-star span {\n  padding: 0 .7rem;\n}\n\n/*个人基本信息*/\n\n.profileDetail .baseInfo {\n  font-size: 1.2rem;\n}\n\n.profileDetail header,\n.profileDetail .baseInfo-list {\n  font-size: 1.2rem;\n  height: 3rem;\n  line-height: 3rem;\n  background-color: #f9f9f9;\n}\n\n.profileDetail .baseInfo-list {\n  display: -webkit-flex;\n  -webkit-justify-content: space-around;\n  border-top: #dadada solid 1px;\n}\n\n.profileDetail .baseInfo-list span:nth-child(1) {\n  -webkit-flex: .2;\n  padding-left: .5rem;\n  font-size: 1rem;\n  color: #999;\n}\n\n.profileDetail .baseInfo-list span:nth-child(2) {\n  -webkit-flex: .7;\n  color: #000;\n}\n\n.profileDetail .baseInfo-list span:nth-child(3) {\n  -webkit-flex: .1;\n  padding-right: .4rem;\n  text-align: end;\n  color: #999;\n}\n\n.profileDetail .gender-select {\n  position: fixed;\n  bottom: 5px;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 12rem;\n  z-index: 999;\n  background-color: #b4b4b4;\n}\n\n.profileDetail .gender-popmenu {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  opacity: 1;\n  background-color: rgba(0, 0, 0, 0.498039);\n}\n\n@keyframes transformPopmenu {\n  from {\n    opacity: .3;\n  }\n}\n\n@-webkit-keyframes transformPopmenu {\n  from {\n    opacity: .3;\n  }\n}\n\n@-webkit-keyframes slideUpPopmenu {\n  from {\n    bottom: -12rem;\n  }\n\n  to {\n    bottom: 0rem;\n  }\n}\n\n@keyframes slideUpPopmenu {\n  from {\n    bottom: -12rem;\n  }\n\n  to {\n    bottom: 0rem;\n  }\n}\n\n@-webkit-keyframes slideDownPopmenu {\n  to {\n    bottom: -12rem;\n  }\n}\n\n@keyframes slideDownPopmenu {\n  to {\n    bottom: -12rem;\n  }\n}\n\n@-webkit-keyframes transformNoPopmenu {\n  to {\n    opacity: 0;\n  }\n}\n\n.profileDetail .gender-popmenu.ng-enter {\n  -webkit-animation: transformPopmenu .4s both ease;\n          animation: transformPopmenu .4s both ease;\n}\n\n.profileDetail .gender-select.ng-enter {\n  -webkit-animation: slideUpPopmenu .4s both ease;\n          animation: slideUpPopmenu .4s both ease;\n}\n\n.gender-popmenu.ng-leave {\n  -webkit-animation: transformNoPopmenu .4s both ease;\n}\n\n.gender-select.ng-leave {\n  -webkit-animation: slideDownPopmenu .4s both ease;\n}\n\n.gender-select ul {\n  width: 100%;\n  height: 100%;\n}\n\n.gender-select ul li {\n  width: 100%;\n  height: 3rem;\n  border-bottom: .5px solid hsla(0, 0%, 84%, .8);\n  background-color: #e7e7e7;\n}\n\n.gender-select ul li a {\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  line-height: 3rem;\n  text-align: center;\n}\n\n.cancel {\n  margin-top: 5px;\n}\n\n.input-info-page text-area {\n  width: 100%;\n  height: 7rem;\n}\n\n.baseInfo-list textarea {\n  height: 7rem;\n}\n\n@-webkit-keyframes slideDesEdit {\n  from {\n    height: 50px;\n    background-color: red;\n  }\n}\n\n@keyframes slideDesEdit {\n  from {\n    height: 50px;\n    background-color: red;\n  }\n}\n\n.descriptionEdit textarea.ng-enter {\n  -webkit-animation: slideDesEdit 1s both ease;\n          animation: slideDesEdit 1s both ease;\n}\n\n.bio-save span {\n  float: right;\n  margin-right: 5px;\n  font-size: 1.1rem;\n}\n\n.personal-bio {\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n  color: #fff;\n}", ""]);
+exports.push([module.i, ".profile-cover {\n  position: relative;\n  z-index: -1;\n  width: 100%;\n  height: 13rem;\n  overflow: hidden;\n  background-image: url(https://tva1.sinaimg.cn/crop.0.0.640.640.640/549d0121tw1egm1kjly3jj20hs0hsq4f.jpg);\n  background-size: cover;\n}\n\n.profile-cover .mask {\n  position: absolute;\n  opacity: .7;\n  width: 100%;\n  height: 100%;\n  background: -webkit-gradient(linear, left top, left bottom, color-stop(40%, rgba(0, 0, 0, .01)), to(rgba(0, 0, 0, .95)));\n  background: -webkit-linear-gradient(top, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));\n  background: -o-linear-gradient(top, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));\n  background: linear-gradient(180deg, rgba(0, 0, 0, .01) 40%, rgba(0, 0, 0, .95));\n}\n\n.profile-cover .personal-avatar {\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n  padding-top: 1rem;\n}\n\n.profile-cover .personal-avatar span {\n  width: 5rem;\n  height: 5rem;\n  display: inline-block;\n  padding: .2rem;\n  border-radius: 50%;\n  background-color: hsla(0, 0%, 100%, .4);\n}\n\n.profile-cover .personal-avatar img {\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n}\n\n.profile-cover .person-profile,\n.profile-cover .personal-star-fans {\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n  padding-top: .5rem;\n}\n\n.profile-cover .person-profile .name-gender,\n.profile-cover .personal-star-fans .follow-star {\n  position: relative;\n  width: 10rem;\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n}\n\n.profile-cover .person-profile .left-username,\n.profile-cover .person-profile .right-gender,\n.profile-cover .personal-star-fans span {\n  font-size: 1rem;\n  color: #FFF;\n  text-align: start;\n}\n\n.profile-cover .followers {\n  border-left: 1px solid #e6e6e6;\n}\n\n.follow-star span {\n  padding: 0 .7rem;\n}\n\n/*个人基本信息*/\n\n.profileDetail .baseInfo {\n  font-size: 1.2rem;\n}\n\n.profileDetail header,\n.profileDetail .baseInfo-list {\n  font-size: 1.2rem;\n  height: 3rem;\n  line-height: 3rem;\n  background-color: #f9f9f9;\n}\n\n.profileDetail .baseInfo-list {\n  display: -webkit-flex;\n  -webkit-justify-content: space-around;\n  border-top: #dadada solid 1px;\n}\n\n.profileDetail .baseInfo-list span:nth-child(1) {\n  -webkit-flex: .2;\n  padding-left: .5rem;\n  font-size: 1rem;\n  color: #999;\n}\n\n.profileDetail .baseInfo-list span:nth-child(2) {\n  -webkit-flex: .7;\n  color: #000;\n}\n\n.profileDetail .baseInfo-list span:nth-child(3) {\n  -webkit-flex: .1;\n  padding-right: .4rem;\n  text-align: end;\n  color: #999;\n}\n\n.profileDetail .gender-select,\n.box-content .gender-select {\n  position: fixed;\n  bottom: 5px;\n  left: 0;\n  right: 0;\n  width: 100%;\n  height: 12rem;\n  z-index: 999;\n  background-color: #b4b4b4;\n}\n\n.profileDetail .gender-popmenu,\n.box-content .gender-popmenu {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0, 0, 0, 0.498039);\n}\n\n.box-content .gender-popmenu {\n  opacity: .3;\n}\n\n@keyframes transformPopmenu {\n  from {\n    opacity: .3;\n  }\n}\n\n@-webkit-keyframes transformPopmenu {\n  from {\n    opacity: .3;\n  }\n}\n\n@-webkit-keyframes slideUpPopmenu {\n  from {\n    bottom: -12rem;\n  }\n\n  to {\n    bottom: 0rem;\n  }\n}\n\n@keyframes slideUpPopmenu {\n  from {\n    bottom: -12rem;\n  }\n\n  to {\n    bottom: 0rem;\n  }\n}\n\n@-webkit-keyframes slideDownPopmenu {\n  to {\n    bottom: -12rem;\n  }\n}\n\n@keyframes slideDownPopmenu {\n  to {\n    bottom: -12rem;\n  }\n}\n\n@-webkit-keyframes transformNoPopmenu {\n  to {\n    opacity: 0;\n  }\n}\n\n.profileDetail .gender-popmenu.ng-enter,\n.box-content .gender-popmenu.ng-enter {\n  -webkit-animation: transformPopmenu .4s both ease;\n          animation: transformPopmenu .4s both ease;\n}\n\n.profileDetail .gender-select.ng-enter,\n.box-content .gender-select.ng-enter {\n  -webkit-animation: slideUpPopmenu .4s both ease;\n          animation: slideUpPopmenu .4s both ease;\n}\n\n.gender-popmenu.ng-leave {\n  -webkit-animation: transformNoPopmenu .4s both ease;\n}\n\n.gender-select.ng-leave {\n  -webkit-animation: slideDownPopmenu .4s both ease;\n}\n\n.gender-select ul {\n  width: 100%;\n  height: 100%;\n}\n\n.gender-select ul li {\n  width: 100%;\n  height: 3rem;\n  border-bottom: .5px solid hsla(0, 0%, 84%, .8);\n  background-color: #e7e7e7;\n}\n\n.gender-select ul li a {\n  display: inline-block;\n  width: 100%;\n  height: 100%;\n  line-height: 3rem;\n  text-align: center;\n}\n\n.cancel {\n  margin-top: 5px;\n}\n\n.input-info-page text-area {\n  width: 100%;\n  height: 7rem;\n}\n\n.baseInfo-list textarea {\n  height: 7rem;\n}\n\n@-webkit-keyframes slideDesEdit {\n  from {\n    height: 50px;\n    background-color: red;\n  }\n}\n\n@keyframes slideDesEdit {\n  from {\n    height: 50px;\n    background-color: red;\n  }\n}\n\n.descriptionEdit textarea.ng-enter {\n  -webkit-animation: slideDesEdit 1s both ease;\n          animation: slideDesEdit 1s both ease;\n}\n\n.bio-save span {\n  float: right;\n  margin-right: 5px;\n  font-size: 1.1rem;\n}\n\n.personal-bio {\n  position: relative;\n  display: -webkit-flex;\n  -webkit-justify-content: center;\n  color: #fff;\n}", ""]);
 
 // exports
 
@@ -40683,7 +40708,7 @@ module.exports = function (css) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(9), __webpack_require__(2), __webpack_require__(10), __webpack_require__(4), __webpack_require__(3), __webpack_require__(15), __webpack_require__(14), __webpack_require__(12), __webpack_require__(11), __webpack_require__(13), __webpack_require__(26), __webpack_require__(19), __webpack_require__(25), __webpack_require__(18), __webpack_require__(21), __webpack_require__(24), __webpack_require__(23), __webpack_require__(22), __webpack_require__(20), __webpack_require__(17), __webpack_require__(16), __webpack_require__(8), __webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, angular, TopController_1, detailController_1, mainListController_1, loginController_1, signupController_1, publisherController_1, personalController_1, homeSettingController_1, personalInfoController_1, viewService_1, CommonService_1, tourismService_1, index_1, loginService_1, routeChangeService_1, postService_1, personalInfoService_1, fileUploadService_1, scrollDirector_1, fileModelDirective_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(9), __webpack_require__(2), __webpack_require__(10), __webpack_require__(4), __webpack_require__(3), __webpack_require__(15), __webpack_require__(14), __webpack_require__(12), __webpack_require__(11), __webpack_require__(13), __webpack_require__(26), __webpack_require__(19), __webpack_require__(25), __webpack_require__(18), __webpack_require__(21), __webpack_require__(24), __webpack_require__(23), __webpack_require__(22), __webpack_require__(20), __webpack_require__(17), __webpack_require__(16), __webpack_require__(8), __webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, angular, TopController_1, detailController_1, mainListController_1, loginController_1, signupController_1, publisherController_1, personalController_1, homeSettingController_1, personalInfoController_1, viewService_1, CommonService_1, tourismService_1, index_1, loginService_1, routeChangeService_1, postService_1, personalInfoService_1, fileUploadService_1, scrollDirective_1, fileModelDirective_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     let App = angular.module('App', ['ngRoute', 'ngAnimate']);
@@ -40713,7 +40738,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     App.controller('HomeSettingController', homeSettingController_1.HomeSettingController);
     App.controller('PersonalInfoController', personalInfoController_1.PersonalInfoController);
     //指令
-    App.directive('scrollRefresh', scrollDirector_1.scrollRefresh);
+    App.directive('scrollRefresh', scrollDirective_1.scrollRefresh);
     //文件上传指令
     App.directive('fileModel', fileModelDirective_1.FileModel.instance);
     //配置路由	

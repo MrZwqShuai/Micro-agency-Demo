@@ -9,26 +9,33 @@ interface Date {
     isEmptyArticle: boolean;
 }
 class MainListController extends TopController {
-    static $inject: Array<string> = ['$rootScope', '$timeout', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService'];
-    constructor(public $rootScope: angular.IRootScopeService, public $timeout: angular.ITimeoutService, public $scope: angular.IScope, public viewService: ViewService, public tourismService: TourismService, public routeChangeService: RouteChangeService, public commonService: CommonService) {
+    static $inject: Array<string> = ['$rootScope', '$timeout','$http', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService'];
+    constructor(public $rootScope: angular.IRootScopeService, public $timeout: angular.ITimeoutService, public $http:angular.IHttpService,public $scope: angular.IScope, public viewService: ViewService, public tourismService: TourismService, public routeChangeService: RouteChangeService, public commonService: CommonService) {
         super($rootScope, $timeout, $scope, tourismService, commonService);
         $scope.routeClass = 'page-main';
         // 给scrollDirective指令用查询文章是否加载完毕
-        $scope.showHomePage = (url?:string,callback?:(data:any) => void) => {
-            this.showHomePage(url,callback);
+        $scope.showHomePage = (url?: string, callback?: (data: any) => void) => {
+            this.showHomePage(url, callback);
         }
         $scope.animateWarning = () => {
-            this.animateWarning() ;
-        } ;
+            this.animateWarning();
+        };
         //发送ajax请求数据 仅仅是发送
-        $scope.getHomePage = (url?:string) => {
+        $scope.getHomePage = (url?: string) => {
             return this.getHomePage(url);
-        } ;
+        };
         // 编辑文章 收藏文章
         $scope.editArticle = () => {
-            return this.editArticle() ;
-        } ;
-
+            return this.editArticle();
+        };
+        $scope.getCancel = () => {
+            return this.getCancel();
+        };
+        $scope.starArticle = () => {
+            return this.starArticle();
+        };
+        // 删除文章
+        $scope.deleteArticle = this.deleteArticle;
 
     }
     $onInit() {
@@ -36,20 +43,20 @@ class MainListController extends TopController {
         this.showHomePage('/articles');
     }
     //处理获取home数据
-    showHomePage(url?:string,judgeArticleEmpty?: (data:any) => void): void {
+    showHomePage(url?: string, judgeArticleEmpty?: (data: any) => void): void {
         console.log('获取数据...');
         this.getHomePage(url).then((data: Date) => {
             this.$scope.listViews = this.viewService.listViews.concat(data.results);
-            console.log(3,data , this.$scope.listViews);
+            console.log(3, data, this.$scope.listViews);
             this.showSignInOut(data);
             //处理滚动时候是否已经加载完毕
-            console.log('滚动') ;
+            console.log('滚动');
             judgeArticleEmpty(data);
             //返回数据条目的信息 
         });
     }
     //返回数据的promise
-    getHomePage(url:string,judgeArticleEmpty?: Function) {
+    getHomePage(url: string, judgeArticleEmpty?: Function) {
         return this.routeChangeService.routeChangeStart(url);
     }
     showSignInOut(data) {
@@ -73,14 +80,30 @@ class MainListController extends TopController {
         // });
     }
     // 提示框定时消失
-    animateWarning():void {
+    animateWarning(): void {
         this.$timeout(() => {
             this.$rootScope.prompt.isTrue = false;
         }, 1000);
     }
     //文章内容的编辑与收藏
     editArticle() {
-        alert('是否编辑此内容') ;
+        this.$scope.gender = {
+            touched: true
+        };
+    }
+    getCancel() {
+        this.$scope.gender = {
+            touched: false
+        };
+    }
+    starArticle() {
+        alert('已收藏');
+    }
+    // 删除某一篇文章
+    deleteArticle(uid) {
+        console.log(uid);
+        this.getCancel();
+        // this.$http.delete('/:59784b5d3f97f215e8bfecc3') ;
     }
 
 }

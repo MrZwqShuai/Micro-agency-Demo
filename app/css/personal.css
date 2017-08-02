@@ -34,8 +34,8 @@
 }
 
 .profile-cover .personal-avatar img {
-    width: 100% ;
-    height: 100% ;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
@@ -112,7 +112,8 @@
     color: #999;
 }
 
-.profileDetail .gender-select {
+.profileDetail .gender-select,
+.box-content .gender-select {
     position: fixed;
     bottom: 5px;
     left: 0;
@@ -123,14 +124,18 @@
     background-color: #b4b4b4;
 }
 
-.profileDetail .gender-popmenu {
+.profileDetail .gender-popmenu,
+.box-content .gender-popmenu {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    opacity: 1;
     background-color: rgba(0, 0, 0, 0.498039);
+}
+
+.box-content .gender-popmenu {
+    opacity: .3;
 }
 
 @keyframes transformPopmenu {
@@ -175,11 +180,13 @@
     }
 }
 
-.profileDetail .gender-popmenu.ng-enter {
+.profileDetail .gender-popmenu.ng-enter,
+.box-content .gender-popmenu.ng-enter {
     animation: transformPopmenu .4s both ease;
 }
 
-.profileDetail .gender-select.ng-enter {
+.profileDetail .gender-select.ng-enter,
+.box-content .gender-select.ng-enter {
     animation: slideUpPopmenu .4s both ease;
 }
 

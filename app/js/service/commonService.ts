@@ -26,7 +26,7 @@ class CommonService {
 		href: '/#!/myblog'
 	},
 	{
-		txt: "微社热聊",
+		txt: "收藏中心",
 		href: '/#!/register.html'
 	}, {
 		txt: "设置中心",

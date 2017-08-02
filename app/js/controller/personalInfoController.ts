@@ -23,8 +23,8 @@ class PersonalInfoController {
 		$scope.genderSelect = () => {
 			this.genderSelect();
 		};
-		$scope.genderNoSelect = () => {
-			this.genderNoSelect();
+		$scope.getCancel = () => {
+			this.getCancel();
 		};
 		$scope.sex = {
 			boy: this.gender.boy,
@@ -38,7 +38,7 @@ class PersonalInfoController {
 
 			let url = this.$location.path();
 			console.log(gender, url);
-			this.genderNoSelect();
+			this.getCancel();
 			$scope.personal.gender = gender;
 			$http.put(url, { gender: gender }).then((response): void => {
 				console.log('修改成功', response);
@@ -74,14 +74,14 @@ class PersonalInfoController {
 			touched: true
 		};
 	}
-	genderNoSelect() {
+	getCancel() {
 		this.$scope.gender = {
 			touched: false
 		};
 	}
 	choiceGender(this: any, gender: string) {
 		console.log(gender);
-		this.genderNoSelect();
+		this.getCancel();
 		this.personal.gender = gender;
 	}
 	personalDes(description: string | number) {

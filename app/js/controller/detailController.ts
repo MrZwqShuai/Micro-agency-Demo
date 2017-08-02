@@ -7,7 +7,9 @@ interface RouteChangeServices extends ng.IScope {
 interface IResponse {
     author: string;
     content: string;
-    currentArticle: object;
+    currentArticle: {
+        photoSrc:string
+    };
     comments: Array<object>;
 }
 class MainDetailController implements IDetailC {

@@ -13,6 +13,22 @@
                 </div>
             </div>
             <a href="" class="operate-box" ng-click="editArticle()">编辑</a>
+            <!--收藏浮层s-->
+            <div class="gender-popmenu" ng-if="gender.touched" ng-click="genderNoSelect()">
+            </div>
+            <div class="gender-select" ng-if="gender.touched">
+                <ul>
+                    <li>
+                        <a>编辑</a>
+                    </li>
+                    <li class="boy" ng-click="starArticle()"><a>收藏</a></li>
+                    <li class="girl" ng-click="deleteArticle(listview.author._id)"><a>屏蔽</a></li>
+                    <li class="cancel" ng-click="getCancel()">
+                        <a>取消</a>
+                    </li>
+                </ul>
+            </div>
+            <!--收藏浮层e-->
         </header>
         <div class="bottom-txt">
             <p><a href="/#!/articles/{{listview._id}}">{{listview.content}}</a></p>
