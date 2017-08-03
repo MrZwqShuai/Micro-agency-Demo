@@ -35,6 +35,9 @@ module.exports = {
         return Article.findOne({ _id: postId }, callback)
             .populate({ path: 'author' })
             .exec();
+    },
+    // 删除单篇内容
+    removeOneArticle: function removeOneArticle(conditions, callback) {
+        return Article.remove(conditions, callback);
     }
-
 };

@@ -135,6 +135,12 @@ header nav .spread-left {
     background-color: #fff;
 }
 
+.box-content:hover {
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.24);
+    transform: scale(1.01, 1.01);
+    transition: .3s ease;
+}
+
 .bottom-txt p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -222,10 +228,12 @@ header nav .spread-left {
         width: 85%;
     }
 }
-.detail-img{
+
+.detail-img {
     display: -webkit-flex;
     -webkit-justify-content: center;
 }
+
 .post-wrapborder2 {
     width: 95.6%;
     height: 86px;
@@ -243,7 +251,7 @@ header nav .spread-left {
     border: none;
     outline: none;
     text-indent: 10px;
-    background-color: #f2f2f2 ;
+    background-color: #f2f2f2;
 }
 
 .btn-commit {
@@ -383,6 +391,61 @@ header nav .spread-left {
     -webkit-flex: .3;
     display: -webkit-flex;
     -webkit-justify-content: flex-end;
+}
+
+
+/*内容编辑*/
+
+.edit-popmenu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: .2;
+    background-color: rgba(0, 0, 0, 0.498039);
+}
+
+.edit-select {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 12rem;
+    z-index: 999;
+    background-color: #b4b4b4;
+}
+
+.edit-select ul li {
+    width: 100%;
+    height: 3rem;
+    border-bottom: .5px solid hsla(0, 0%, 84%, .8);
+    background-color: #e7e7e7;
+}
+
+.edit-select ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.edit-popmenu.ng-enter {
+    animation: transformPopmenu .4s both ease;
+}
+
+.edit-select.ng-enter {
+    animation: slideUpPopmenu .4s both ease;
+}
+
+.edit-popmenu.ng-leave {
+    -webkit-animation: transformNoPopmenu .4s both ease;
+}
+
+.edit-select.ng-leave {
+    -webkit-animation: slideDownPopmenu .4s both ease;
 }
 
 

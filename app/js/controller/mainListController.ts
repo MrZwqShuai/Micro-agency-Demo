@@ -8,9 +8,16 @@ interface Date {
     results: Array<object>;
     isEmptyArticle: boolean;
 }
+interface ArticleInfo {
+    _id: string;
+    author: {
+        _id?:any
+    }
+}
 class MainListController extends TopController {
-    static $inject: Array<string> = ['$rootScope', '$timeout','$http', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService'];
-    constructor(public $rootScope: angular.IRootScopeService, public $timeout: angular.ITimeoutService, public $http:angular.IHttpService,public $scope: angular.IScope, public viewService: ViewService, public tourismService: TourismService, public routeChangeService: RouteChangeService, public commonService: CommonService) {
+    static $inject: Array<string> = ['$rootScope', '$timeout', '$http', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService'];
+    public articleInfo: ArticleInfo;
+    constructor(public $rootScope: angular.IRootScopeService, public $timeout: angular.ITimeoutService, public $http: angular.IHttpService, public $scope: angular.IScope, public viewService: ViewService, public tourismService: TourismService, public routeChangeService: RouteChangeService, public commonService: CommonService) {
         super($rootScope, $timeout, $scope, tourismService, commonService);
         $scope.routeClass = 'page-main';
         // 给scrollDirective指令用查询文章是否加载完毕
@@ -25,8 +32,8 @@ class MainListController extends TopController {
             return this.getHomePage(url);
         };
         // 编辑文章 收藏文章
-        $scope.editArticle = () => {
-            return this.editArticle();
+        $scope.editArticle = (articleInfo) => {
+            return this.editArticle(articleInfo);
         };
         $scope.getCancel = () => {
             return this.getCancel();
@@ -34,8 +41,22 @@ class MainListController extends TopController {
         $scope.starArticle = () => {
             return this.starArticle();
         };
-        // 删除文章
-        $scope.deleteArticle = this.deleteArticle;
+        // 编辑文章 收藏文章
+        $scope.editArticle = (listview) => {
+            return this.editArticle(listview);
+        };
+        // 删除某一篇文章
+        $scope.deleteArticle = () => {
+            console.log(this.articleInfo);
+            let uid = this.articleInfo.author._id,
+                aid = this.articleInfo._id;
+            this.getCancel();
+            $http.delete(`articles/uid=${uid}&aid=${aid}`)
+                .then((response:{data:any}) => {
+                    console.log(response.data.data);
+                    $scope.$emit('promptMsg',response.data.data)
+                });
+        }
 
     }
     $onInit() {
@@ -86,24 +107,20 @@ class MainListController extends TopController {
         }, 1000);
     }
     //文章内容的编辑与收藏
-    editArticle() {
-        this.$scope.gender = {
+    editArticle(articleInfo) {
+        console.log(articleInfo, 2);
+        this.$scope.edit = {
             touched: true
         };
+        this.articleInfo = articleInfo;
     }
     getCancel() {
-        this.$scope.gender = {
+        this.$scope.edit = {
             touched: false
         };
     }
     starArticle() {
         alert('已收藏');
-    }
-    // 删除某一篇文章
-    deleteArticle(uid) {
-        console.log(uid);
-        this.getCancel();
-        // this.$http.delete('/:59784b5d3f97f215e8bfecc3') ;
     }
 
 }

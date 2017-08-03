@@ -7,9 +7,9 @@ import { PersonalInfoService } from '../service/personalInfoService';
 import '../../css/personal.css';
 import * as angular from 'angular';
 class PersonalController extends MainListController {
-    static $inject: Array<string> = ['$rootScope', '$timeout', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService', '$location', 'personalInfoService'];
-    constructor(public $rootScope: angular.IRootScopeService, public $timeout: angular.ITimeoutService, public $scope: angular.IScope, public viewService: ViewService, public tourismService: TourismService, public routeChangeService: RouteChangeService, public commonService: CommonService, public $location: angular.ILocationService, public personalInfoService: PersonalInfoService) {
-        super($rootScope, $timeout, $scope, viewService, tourismService, routeChangeService, commonService);
+    static $inject: Array<string> = ['$rootScope', '$timeout','$http', '$scope', 'viewService', 'tourismService', 'routeChangeService', 'commonService', '$location', 'personalInfoService'];
+    constructor(public $rootScope: angular.IRootScopeService, public $timeout: angular.ITimeoutService,  public $http: angular.IHttpService,public $scope: angular.IScope, public viewService: ViewService, public tourismService: TourismService, public routeChangeService: RouteChangeService, public commonService: CommonService, public $location: angular.ILocationService, public personalInfoService: PersonalInfoService) {
+        super($rootScope, $timeout,$http, $scope, viewService, tourismService, routeChangeService, commonService);
         $scope.nickname = personalInfoService.nickname;
         $scope.bio = personalInfoService.bio;
     }

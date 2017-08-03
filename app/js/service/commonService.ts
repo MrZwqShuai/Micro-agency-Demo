@@ -13,7 +13,7 @@ class CommonService {
     public pIndex: number = -1;
     public prompt: Prompt = this.prompt = {
         isTrue: false,
-        message: ['注册成功', '登录成功', '登录失败', '登出成功', '已经没有更多内容了!']
+        message: ['注册成功', '登录成功', '登录失败', '登出成功', '已经没有更多内容了!','不能删除其他人的内容','删除成功']
     };
     public subCallbackState: ($scope) => void;
     public routeHome: () => void;
