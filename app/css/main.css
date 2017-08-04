@@ -141,8 +141,6 @@ header nav .spread-left {
 
 .box-content:hover {
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.24);
-    transform: scale(1.01, 1.01);
-    transition: .3s ease;
 }
 
 .bottom-txt p {
