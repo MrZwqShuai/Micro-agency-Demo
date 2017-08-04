@@ -236,6 +236,8 @@ header nav .spread-left {
 .detail-img {
     display: -webkit-flex;
     -webkit-justify-content: center;
+    height: 16rem;
+    width: 100%;
 }
 
 .post-wrapborder2 {
