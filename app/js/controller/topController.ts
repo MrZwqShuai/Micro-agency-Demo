@@ -33,6 +33,10 @@ class TopController {
 				this.$scope.prompt.isTrue = this.commonService.prompt.isTrue = false;
 			}, 1000);
 		});
+		// 控制loading
+		this.$scope.$on('loadingBlock', (e, data) => {
+			this.$scope.loadingBlock = data;
+		});
 	}
 
 }

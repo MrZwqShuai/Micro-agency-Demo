@@ -102,7 +102,7 @@
 
 .showBubble {
     position: absolute;
-    top: 1rem;
+    top: 12rem;
     background: url(../img/bubbleprompt.png) no-repeat;
     padding: .36rem 1rem;
     color: #fff;
@@ -134,34 +134,49 @@
 }
 
 .m-loginNew {
-    position: relative;
+    /*position: relative;*/
 }
-.nickname-container,.bio-container{
+
+.nickname-container,
+.bio-container {
     display: -webkit-flex;
     height: 3rem;
     border-bottom: 1px solid #e6e6e6;
     font-size: 1rem;
 }
-.nickname-container span,.bio-container span {
-    line-height: 3rem ;
+
+.nickname-container span,
+.bio-container span {
+    line-height: 3rem;
     color: rgba(68, 68, 68, 0.54)
 }
-.nickname-container input,.bio-container input{
-    text-indent: 10px ;
+
+.nickname-container input,
+.bio-container input {
+    text-indent: 10px;
 }
-.nickname-container span,.nickname-container input,.bio-container span,.bio-container input{
-    -webkit-flex:.5 ;
+
+.nickname-container span,
+.nickname-container input,
+.bio-container span,
+.bio-container input {
+    -webkit-flex: .5;
 }
+
+
 /*上传头像css*/
+
 #updateAvatar {
-    display: none ;
+    display: none;
 }
-.avatar-container{
+
+.avatar-container {
     height: 6rem;
     padding: .5rem 0;
     border-bottom: 1px solid #e6e6e6;
 }
-.avatar-container label{
+
+.avatar-container label {
     background: url(../img/avatar.png);
     width: 6rem;
     background-size: cover;
@@ -169,11 +184,17 @@
     display: block;
     margin: 0rem auto;
 }
+
+
 /*section下面的inp框背景色*/
+
 .m-loginNew input {
-    background-color: #f2f2f2 ;
+    background-color: #f2f2f2;
 }
+
+
 /*上传头像css*/
+
 .mainLoginWay {
     display: -webkit-flex;
     -webkit-justify-content: center;

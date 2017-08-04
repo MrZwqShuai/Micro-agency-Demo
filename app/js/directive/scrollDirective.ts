@@ -51,7 +51,9 @@ export const scrollRefresh: angular.IDirectiveFactory = function (): angular.IDi
                                 console.log('内容全部加载完毕清空windowscroll函数了');
                                 window.onscroll = null;
                             }
+                        $scope.$emit('loadingBlock',false) ;
                         }
+                        $scope.$emit('loadingBlock',true) ;
                         $scope.showHomePage('/articles',judgeArticleEmpty);
                     }
                 };
