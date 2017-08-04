@@ -333,6 +333,7 @@ header nav .spread-left {
 .warning-box {
     position: fixed;
     width: 100%;
+    max-width: 640px;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     opacity: 0.8;
@@ -342,6 +343,7 @@ header nav .spread-left {
     height: 2rem;
     margin: 0 1rem;
     line-height: 2rem;
+    text-align: center;
     background-color: #d7e7e9;
 }
 
@@ -402,6 +404,8 @@ header nav .spread-left {
     bottom: 0;
     left: 0;
     right: 0;
+    max-width: 640px;
+    margin: 0 auto;
     opacity: .2;
     background-color: rgba(0, 0, 0, 0.498039);
 }
@@ -412,7 +416,9 @@ header nav .spread-left {
     left: 0;
     right: 0;
     width: 100%;
+    max-width: 640px;
     height: 12rem;
+    margin: 0 auto;
     z-index: 999;
     background-color: #b4b4b4;
 }
