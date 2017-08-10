@@ -42,8 +42,9 @@
 
         </div>
     </div>
-    <div id="preloader" ng-show="successLodaing">
-
+    <!--首屏渲染loading-->
+    <div id="preloader" ng-hide="successLodaing">
+        <div class="cubeCraze"></div>
     </div>
     <!--加载loadingS-->
     <div id="loading" class="qm_loadingBlock" ng-if="loadingBlock">

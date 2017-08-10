@@ -721,8 +721,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             };
         }
         $onInit() {
-            console.log('组件初始化..');
             this.showHomePage('/articles');
+            console.log('组件初始化..');
         }
         //处理获取home数据
         showHomePage(url, judgeArticleEmpty) {
@@ -731,6 +731,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                 this.$scope.listViews = this.viewService.listViews.concat(data.results);
                 console.log(3, data, this.$scope.listViews);
                 this.showSignInOut(data);
+                this.$rootScope.successLodaing = true;
                 //处理滚动时候是否已经加载完毕
                 console.log('滚动');
                 judgeArticleEmpty(data);
@@ -755,6 +756,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
                 };
             }
         }
+        // // 首屏加载
+        // perloading() {
+        // 	this.$rootScope.successLodaing = true ;
+        // }
         //路由切换清除window的全局事件
         routerLeave() {
             // this.$scope.$on('$routeChangeSuccess', (event) => {

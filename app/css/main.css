@@ -477,6 +477,63 @@ header nav .spread-left {
     -ms-backface-visibility: hidden;
 }
 
+#preloader>div {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    left: 50%;
+    top: 50%;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    border-top-color: #f95372;
+    animation: spinCube 2s linear infinite;
+}
+
+#preloader>div:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 3px solid transparent;
+    border-top-color: #06adbe;
+    border-radius: 50%;
+    animation: spinCube 3s linear infinite;
+}
+
+#preloader>div::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px solid transparent;
+    border-top-color: #e7ba08;
+    border-radius: 50%;
+    animation: spinCube 1.5s linear infinite;
+}
+
+@keyframes spinCube {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes spinCube {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
 
 /*加载数据loading*/
 
