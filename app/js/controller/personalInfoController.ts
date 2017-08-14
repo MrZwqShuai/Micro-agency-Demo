@@ -64,7 +64,7 @@ class PersonalInfoController {
 		};
 		//nickname设置
 		$scope.nickname = personalInfoService.nickname;
-	} s
+	} 
 	$onInit() {
 		this.getBaseInformation();
 	}
